@@ -1,4 +1,9 @@
-import axios from 'axios';
-window.axios = axios;
+import { createApp } from 'vue';
+import App from './components/App.vue';
+import router from './router';
+import { createPinia } from 'pinia';
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+const app = createApp(App);
+app.use(router);
+app.use(createPinia());
+app.mount('#app');
